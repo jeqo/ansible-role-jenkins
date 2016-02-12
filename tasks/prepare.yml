@@ -7,7 +7,7 @@
 - user:
     name: "{{ jenkins_user }}"
     group: "{{ jenkins_group }}"
-    home: "{{ jenkins_base }}"
+    home: "{{ jenkins_home }}"
     createhome: yes
     state: present
 
