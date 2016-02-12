@@ -3,7 +3,7 @@
 jenkins_user: jenkins
 jenkins_group: jenkins
 
-jenkins_url_directory: http://mirrors.jenkins-ci.org/war-stable/{{ jenkins_version }}
+jenkins_url_directory: http://mirrors.jenkins-ci.org/war/{{ jenkins_version }}
 jenkins_url: "{{ jenkins_url_directory }}/jenkins.war"
 jenkins_plugins_url: https://updates.jenkins-ci.org/download/plugins
 
