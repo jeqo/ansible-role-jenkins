@@ -1,0 +1,11 @@
+- name: download plugins
+  get_url:
+    url: "{{ jenkins_plugins_url }}/{{ item.id }}/{{ item.version }}/{{ item.id }}.hpi"
+    dest: "{{ jenkins_plugins_directory }}/{{ item.id }}.jpi"
+  with_items: "{{ jenkins_plugins }}"
+
+- name: unarchive plugins
+  unarchive:
+    src: "{{ jenkins_plugins_directory }}/{{ item.id }}.jpi"
+    copy: no
+  with_items: "{{ jenkins_plugins }}"

@@ -1,0 +1,17 @@
+---
+# vars file for jenkins
+jenkins_user: jenkins
+jenkins_group: jenkins
+
+jenkins_url_directory: http://mirrors.jenkins-ci.org/war-stable/{{ jenkins_version }}
+jenkins_url: "{{ jenkins_url_directory }}/jenkins.war"
+jenkins_plugins_url: https://updates.jenkins-ci.org/download/plugins
+
+jenkins_home: /opt/jenkins
+jenkins_work: /usr/share/jenkins
+jenkins_reference_directory: "{{ jenkins_work }}/ref"
+jenkins_plugins_directory: "{{ jenkins_reference_directory }}/plugins"
+
+jenkins_copy_reference_file_log: "{{ jenkins_home }}/copy_reference_file.log"
+
+jenkins_slave_agent_port: 50000

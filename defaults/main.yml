@@ -1,0 +1,8 @@
+---
+# defaults file for jenkins
+jenkins_version: 1.642.1
+
+jenkins_plugins: []
+#  -
+#    id:
+#    version:

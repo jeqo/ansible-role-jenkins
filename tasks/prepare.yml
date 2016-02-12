@@ -1,0 +1,28 @@
+---
+#
+- group:
+    name: "{{ jenkins_group }}"
+    state: present
+
+- user:
+    name: "{{ jenkins_user }}"
+    group: "{{ jenkins_group }}"
+    home: "{{ jenkins_base }}"
+    createhome: yes
+    state: present
+
+- file:
+    path: "{{ jenkins_work }}"
+    state: directory
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_group }}"
+
+- name: install basic packages
+  package: name={{ item }} state=latest
+  with_items:
+    - unzip
+    - zip
+    - git
+    - wget
+    - curl
+    - tar
