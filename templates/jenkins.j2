@@ -11,13 +11,13 @@ set -e
 copy_reference_file() {
 	f="${1%/}"
 	b="${f%.override}"
-	echo "$f" >> "$COPY_REFERENCE_FILE_LOG"
+	echo "$f" >> "{{ jenkins_copy_reference_file_log }}"
 	rel="${b:23}"
 	dir=$(dirname "${b}")
-	echo " $f -> $rel" >> "$COPY_REFERENCE_FILE_LOG"
+	echo " $f -> $rel" >> "{{ jenkins_copy_reference_file_log }}"
 	if [[ ! -e {{ jenkins_home }}/${rel} || $f = *.override ]]
 	then
-		echo "copy $rel to JENKINS_HOME" >> "$COPY_REFERENCE_FILE_LOG"
+		echo "copy $rel to JENKINS_HOME" >> "{{ jenkins_copy_reference_file_log }}"
 		mkdir -p "{{ jenkins_home }}/${dir:23}"
 		cp -r "${f}" "{{ jenkins_home }}/${rel}";
 		# pin plugins on initial copy
@@ -25,8 +25,8 @@ copy_reference_file() {
 	fi;
 }
 export -f copy_reference_file
-touch "${COPY_REFERENCE_FILE_LOG}" || (echo "Can not write to ${COPY_REFERENCE_FILE_LOG}. Wrong volume permissions?" && exit 1)
-echo "--- Copying files at $(date)" >> "$COPY_REFERENCE_FILE_LOG"
+touch "{{ jenkins_copy_reference_file_log }}" || (echo "Can not write to {{ jenkins_copy_reference_file_log }}. Wrong volume permissions?" && exit 1)
+echo "--- Copying files at $(date)" >> "{{ jenkins_copy_reference_file_log }}"
 find {{ jenkins_reference_directory }}/ -type f -exec bash -c "copy_reference_file '{}'" \;
 
 # if `docker run` first argument start with `--` the user is passing jenkins launcher arguments
