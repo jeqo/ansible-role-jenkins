@@ -6,14 +6,12 @@
 - template:
     src: init.groovy.j2
     dest: "{{ jenkins_reference_directory }}/init.groovy.d/tcp-slave-agent-port.groovy"
-  environment: "JENKINS_SLAVE_AGENT_PORT: {{ jenkins_slave_agent_port }}"
 
 - template:
     src: jenkins.j2
     dest: /usr/local/bin/jenkins
-  environment: "COPY_REFERENCE_FILE_LOG: {{ jenkins_copy_reference_file_log }}"
 
 - name: download foo.conf
   get_url:
     url: "{{ jenkins_url }}"
-    dest: "{{ jenkins_work}}/jenkins.war" 
+    dest: "{{ jenkins_work}}/jenkins.war"
