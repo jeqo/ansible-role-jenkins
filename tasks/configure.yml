@@ -14,3 +14,6 @@
 - template:
     src: jenkins.j2
     dest: /usr/local/bin/jenkins
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_group }}"
+    mode: "u+x"
