@@ -1,0 +1,16 @@
+
+- file:
+    path: "{{ jenkins_reference_directory }}"
+    state: directory
+
+- file:
+    path: "{{ jenkins_reference_directory }}/init.groovy.d"
+    state: directory
+
+- template:
+    src: init.groovy.j2
+    dest: "{{ jenkins_reference_directory }}/init.groovy.d/tcp-slave-agent-port.groovy"
+
+- template:
+    src: jenkins.j2
+    dest: /usr/local/bin/jenkins

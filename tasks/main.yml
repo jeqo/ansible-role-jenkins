@@ -6,3 +6,6 @@
 - include: install.yml
   become: yes
   become_user: "{{ jenkins_user }}"
+
+- include: configure.yml
+  become: yes
