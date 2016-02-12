@@ -1,3 +1,5 @@
+---
+#
 - name: download plugins
   get_url:
     url: "{{ jenkins_plugins_url }}/{{ item.id }}/{{ item.version }}/{{ item.id }}.hpi"

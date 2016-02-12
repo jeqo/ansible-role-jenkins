@@ -1,17 +1,17 @@
-
-- file:
-    path: "{{ jenkins_reference_directory }}"
-    state: directory
-
-- file:
+---
+#
+- name: craete groovy ref directory
+  file:
     path: "{{ jenkins_reference_directory }}/init.groovy.d"
     state: directory
 
-- template:
+- name: init groovy script
+  template:
     src: init.groovy.j2
     dest: "{{ jenkins_reference_directory }}/init.groovy.d/tcp-slave-agent-port.groovy"
 
-- template:
+- name: configure jenkins command
+  template:
     src: jenkins.j2
     dest: /usr/local/bin/jenkins
     owner: "{{ jenkins_user }}"

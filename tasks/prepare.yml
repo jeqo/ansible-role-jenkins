@@ -11,7 +11,8 @@
     createhome: yes
     state: present
 
-- file:
+- name: create work directory
+  file:
     path: "{{ jenkins_work }}"
     state: directory
     owner: "{{ jenkins_user }}"
