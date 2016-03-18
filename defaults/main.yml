@@ -1,6 +1,6 @@
 ---
 # defaults file for jenkins
-jenkins_version: 1.647
+jenkins_version: 1.653
 
 jenkins_plugins: []
 #  -
