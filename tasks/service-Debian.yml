@@ -4,8 +4,9 @@
 - name: configure jenkins service
   template:
     src: jenkins-init.j2
-    dest: /etc/init/jenkins.conf
+    dest: /etc/init.d/jenkins
+    mode: "u+x"
 
 - name: start service
-  command: start jenkins
+  command: update-rc.d jenkins defaults
   ignore_errors: yes
