@@ -9,3 +9,6 @@
 
 - include: configure.yml
   become: yes
+
+- include: service-{{ ansible_os_family }}.yml
+  become: yes

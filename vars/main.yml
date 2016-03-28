@@ -11,6 +11,7 @@ jenkins_home: /opt/jenkins
 jenkins_work: /usr/share/jenkins
 jenkins_reference_directory: "{{ jenkins_work }}/ref"
 jenkins_plugins_directory: "{{ jenkins_reference_directory }}/plugins"
+jenkins_command_path: /usr/local/bin/jenkins
 
 jenkins_copy_reference_file_log: "{{ jenkins_home }}/copy_reference_file.log"
 

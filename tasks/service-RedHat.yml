@@ -1,0 +1,19 @@
+---
+
+
+- name: configure jenkins service
+  template:
+    src: jenkins-service.j2
+    dest: /etc/systemd/system/jenkins.service
+
+- name: enable service
+  command: systemctl daemon-reload
+  ignore_errors: yes
+
+- name: enable service
+  command: systemctl enable jenkins.service
+  ignore_errors: yes
+
+- name: start service
+  command: systemctl start jenkins.service
+  ignore_errors: yes

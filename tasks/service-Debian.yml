@@ -1,0 +1,11 @@
+---
+
+
+- name: configure jenkins service
+  template:
+    src: jenkins-init.j2
+    dest: /etc/init/jenkins.conf
+
+- name: start service
+  command: start jenkins
+  ignore_errors: yes
