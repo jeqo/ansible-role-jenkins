@@ -7,10 +7,6 @@
     dest: /etc/init.d/jenkins
     mode: "u+x"
 
-- name: enable service
-  command: update-rc.d jenkins defaults
-  ignore_errors: yes
-
 - name: start service
-  command: start jenkins
+  command: update-rc.d jenkins defaults
   ignore_errors: yes
