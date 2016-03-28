@@ -1,0 +1,9 @@
+[Unit]
+Description=Jenkins Daemon
+
+[Service]
+ExecStart=/usr/local/bin/jenkins
+User={{ jenkins_user }}
+
+[Install]
+WantedBy=multi-user.target
