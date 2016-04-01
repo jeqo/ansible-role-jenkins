@@ -1,8 +1,11 @@
 ---
 # defaults file for jenkins
-jenkins_version: 1.653
+jenkins_version: 1.655
 
-jenkins_plugins: []
-#  -
-#    id:
-#    version:
+jenkins_plugins:
+  -
+    id: git
+    version: 2.4.4
+  -
+    id:  workflow-aggregator
+    version: 1.15
