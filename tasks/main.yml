@@ -1,14 +1,4 @@
 ---
 # tasks file for jenkins
-- include: prepare.yml
-  become: yes
-
-- include: install.yml
-  become: yes
-  become_user: "{{ jenkins_user }}"
-
-- include: configure.yml
-  become: yes
-
-- include: service-{{ ansible_os_family }}.yml
+- include: install-{{ ansible_os_family }}.yml
   become: yes

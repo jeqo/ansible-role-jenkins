@@ -1,0 +1,11 @@
+- apt_key:
+    url: "https://pkg.jenkins.io/debian/jenkins-ci.org.key"
+    state: present
+
+- apt_repository:
+    repo: deb http://pkg.jenkins.io/debian-stable binary/
+    state: present
+
+- apt:
+    name: jenkins
+    update_cache: yes
